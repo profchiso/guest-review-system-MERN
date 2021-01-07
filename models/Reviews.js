@@ -11,6 +11,12 @@ const reviewsSchema = new mongoose.Schema({
 			moreDescription: { type: String },
 		},
 	],
+	guestName: {
+		type: String,
+	},
+	guestEmail: {
+		type: String,
+	},
 });
 
 const Reviews = mongoose.model('Reviews', reviewsSchema);
