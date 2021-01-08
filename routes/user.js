@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { check } = require('express-validator');
 const { authenticate, authorize } = require('../controllers/auth');
 const {
 	getAllUsers,
@@ -21,7 +22,36 @@ router.get(
 router.get('/:id', getSingleUser);
 
 //add user
-router.post('/', authenticate, addUser);
+router.post(
+	'/',
+	[
+		check('firstName')
+			.not()
+			.notEmpty()
+			.withMessage('Firtname cannot be empty')
+			.escape()
+			.trim(),
+		check('lastName')
+			.not()
+			.notEmpty()
+			.withMessage('Lastname cannot be empty')
+			.escape()
+			.trim(),
+		check('email')
+			.not()
+			.notEmpty()
+			.withMessage('Email cannot be empty')
+			.isEmail()
+			.withMessage('Invalid email')
+			.normalizeEmail(),
+		check('password')
+			.not()
+			.notEmpty()
+			.withMessage('Password must not be empty'),
+		check('phone').not().notEmpty().withMessage('phone must not be empty'),
+	],
+	addUser
+);
 
 //edit user
 router.patch('/:id', authenticate, editUser);

@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
 		default: 'staff',
 		enum: ['staff', 'accountant', 'receptionist', 'manager'],
 	},
+	password: {
+		type: String,
+		required: true,
+	},
 });
 
 const User = mongoose.model('User', userSchema);
