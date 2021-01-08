@@ -171,7 +171,7 @@ exports.updateReview = async (req, res) => {
 		if (review) {
 			reviewToUpdate.review = review;
 		}
-
+		console.log('updatedreview', reviewToUpdate);
 		await reviewToUpdate.save();
 		return res.status(200).json({
 			success: true,
