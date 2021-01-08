@@ -14,9 +14,9 @@ const cookieParser = require('cookie-parser');
 const reviewRoute = require('./routes/reviews');
 
 // db controller
-//const connectToDB = require('./controllers/dbController');
+const connectToDB = require('./controllers/dbconnection');
 
-//connectToDB();
+connectToDB();
 
 const app = express();
 app.enable('trust proxy');
@@ -49,7 +49,12 @@ app.use(cookieParser());
 app.use(hpp({ whitelist: [] })); // use the whitelist option to specify some parameter that you want to allow duplicate in the array
 
 //routes
-
+app.get('/', (req, res) => {
+	res.status(200).json({
+		message: 'Welcome to guest review system ',
+		documentation: `<a href="www.google.com">visit docs</a>`,
+	});
+});
 app.use('/api/v1/review', reviewRoute); //review route
 
 //catch undefined endpoints

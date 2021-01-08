@@ -121,7 +121,7 @@ exports.addReview = async (req, res) => {
 	try {
 		const reviewData = { ...req.body };
 
-		const createReview = await User.create({
+		const createReview = await Review.create({
 			guestName: reviewData.guestName,
 			guestEmail: reviewData.guestEmail,
 			guestPhone: reviewData.guestPhone,
@@ -129,14 +129,14 @@ exports.addReview = async (req, res) => {
 			review: [],
 		});
 
-		const message = `Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}`;
+		const message = `<div>Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}</div>`;
 
 		const mailOptions = {
 			from: 'giftedbraintech@gmail.com',
-			to: createReview.email,
+			to: createReview.guestEmail,
 			subject: 'Thank You for your patronage',
-			text: `${message}`,
-			html: ``,
+			text: `https://www.guest-review.com/${createReview.id}`,
+			html: `${message}`,
 		};
 
 		await sendMailWithSendgrid(mailOptions);
