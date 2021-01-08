@@ -109,6 +109,7 @@ exports.getSingleReview = async (req, res) => {
 
 //@signup user
 exports.addReview = async (req, res) => {
+	console.log('request body', req.body);
 	const errors = validationResult(req);
 
 	if (!errors.isEmpty()) {
@@ -157,6 +158,8 @@ exports.addReview = async (req, res) => {
 
 //@update review
 exports.updateReview = async (req, res) => {
+	console.log('request body', req.body);
+	console.log('request param', req.params);
 	try {
 		const { facilitiesUsed, review } = req.body;
 

@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 //user defined modules
-//const customerRoute = require('./routes/customer');
+const reviewRoute = require('./routes/reviews');
 
 // db controller
 //const connectToDB = require('./controllers/dbController');
@@ -50,7 +50,7 @@ app.use(hpp({ whitelist: [] })); // use the whitelist option to specify some par
 
 //routes
 
-//app.use('/api/v1/customers', customerRoute); //users route
+app.use('/api/v1/review', reviewRoute); //review route
 
 //catch undefined endpoints
 // app.use(undefinedRoutes);

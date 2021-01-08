@@ -6,7 +6,7 @@ const {
 	getAllReviews,
 	getSingleReview,
 	addReview,
-	editReview,
+	updateReview,
 	deleteReview,
 } = require('../controllers/reviews');
 
@@ -47,7 +47,7 @@ router.post(
 );
 
 //edit review
-router.patch('/:id', editReview);
+router.patch('/:id', updateReview);
 
 //delete review by manager
 
