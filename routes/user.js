@@ -48,7 +48,7 @@ router.post(
 			.not()
 			.notEmpty()
 			.withMessage('Password must not be empty'),
-		check('phone').not().notEmpty().withMessage('phone must not be empty'),
+		check('phone').not().notEmpty().withMessage('Phone must not be empty'),
 	],
 	addUser
 );

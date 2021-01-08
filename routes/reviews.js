@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { check } = require('express-validator');
 const { authenticate, authorize } = require('../controllers/auth');
 const {
 	getAllReviews,
@@ -21,10 +22,32 @@ router.get(
 router.get('/:id', getSingleReview);
 
 //add review
-router.post('/', authenticate, addReview);
+router.post(
+	'/',
+	[
+		check('guestName')
+			.not()
+			.notEmpty()
+			.withMessage('Firtname cannot be empty')
+			.escape()
+			.trim(),
+		check('guestEmail')
+			.not()
+			.notEmpty()
+			.withMessage('Lastname cannot be empty')
+			.isEmail()
+			.withMessage('Invalid email')
+			.normalizeEmail(),
+		check('guestPhone')
+			.not()
+			.notEmpty()
+			.withMessage('Phone number required'),
+	],
+	addReview
+);
 
 //edit review
-router.patch('/:id', authenticate, editReview);
+router.patch('/:id', editReview);
 
 //delete review by manager
 

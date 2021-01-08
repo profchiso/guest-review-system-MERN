@@ -9,10 +9,7 @@ const reviewsSchema = new mongoose.Schema({
 	guestPhone: {
 		type: String,
 	},
-	facilitiesUsed: {
-		type: String,
-		required: true,
-	},
+	facilitiesUsed: [String],
 	review: [
 		{
 			facilty: { type: String },
