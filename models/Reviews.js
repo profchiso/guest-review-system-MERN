@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 const reviewsSchema = new mongoose.Schema({
+	guestName: {
+		type: String,
+	},
+	guestEmail: {
+		type: String,
+	},
+	guestPhone: {
+		type: String,
+	},
 	facilitiesUsed: {
 		type: String,
 		required: true,
@@ -11,12 +20,6 @@ const reviewsSchema = new mongoose.Schema({
 			moreDescription: { type: String },
 		},
 	],
-	guestName: {
-		type: String,
-	},
-	guestEmail: {
-		type: String,
-	},
 });
 
 const Reviews = mongoose.model('Reviews', reviewsSchema);

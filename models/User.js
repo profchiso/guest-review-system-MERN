@@ -13,6 +13,11 @@ const userSchema = new mongoose.Schema({
 	phone: {
 		type: String,
 	},
+	userType: {
+		type: String,
+		default: 'staff',
+		enum: ['staff', 'accountant', 'receptionist', 'manager'],
+	},
 });
 
 const User = mongoose.model('User', userSchema);
