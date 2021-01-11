@@ -6,10 +6,18 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function ResturantReview() {
+function ResturantReview(props) {
+	const {
+		progressCount,
+		response,
+		setResponse,
+		facilitiesUsed,
+		setFacilitiesUsed,
+		reviews,
+		setReviews,
+	} = props;
 	const [questionValue, setQuestionValue] = useState(1);
 	const onChange = (e) => {
-		console.log('radio checked', e.target.value);
 		setQuestionValue(e.target.value);
 	};
 	return (

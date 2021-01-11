@@ -5,7 +5,7 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function ReceptionReview() {
+function ReceptionReview(props) {
 	return (
 		<div className='component-container'>
 			<div>

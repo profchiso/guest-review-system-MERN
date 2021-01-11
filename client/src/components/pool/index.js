@@ -7,6 +7,15 @@ const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
 function PoolReview(props) {
+	const {
+		progressCount,
+		response,
+		setResponse,
+		facilitiesUsed,
+		setFacilitiesUsed,
+		reviews,
+		setReviews,
+	} = props;
 	const [questionValue, setQuestionValue] = useState(1);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);

@@ -9,7 +9,9 @@ const { Title, Text } = Typography;
 
 function App() {
 	const [view, setView] = useState(1);
+	const [facilitiesUsed, setFacilitiesUsed] = useState(['reception']);
 	const [progressCount, setProgressCount] = useState(1);
+	const [reviews, setReviews] = useState([]);
 
 	const [response, setResponse] = useState({});
 
@@ -23,6 +25,10 @@ function App() {
 						progressCount={progressCount}
 						response={response}
 						setResponse={setResponse}
+						facilitiesUsed={facilitiesUsed}
+						setFacilitiesUsed={setFacilitiesUsed}
+						reviews={reviews}
+						setReviews={setReviews}
 					/>
 				)}
 				{progressCount === 2 && (
@@ -30,6 +36,10 @@ function App() {
 						progressCount={progressCount}
 						response={response}
 						setResponse={setResponse}
+						facilitiesUsed={facilitiesUsed}
+						setFacilitiesUsed={setFacilitiesUsed}
+						reviews={reviews}
+						setReviews={setReviews}
 					/>
 				)}
 				{progressCount === 3 && (
@@ -37,6 +47,10 @@ function App() {
 						progressCount={progressCount}
 						response={response}
 						setResponse={setResponse}
+						facilitiesUsed={facilitiesUsed}
+						setFacilitiesUsed={setFacilitiesUsed}
+						reviews={reviews}
+						setReviews={setReviews}
 					/>
 				)}
 
