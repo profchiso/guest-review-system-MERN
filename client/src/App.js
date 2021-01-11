@@ -12,15 +12,33 @@ function App() {
 	const [progressCount, setProgressCount] = useState(1);
 
 	const [response, setResponse] = useState({});
-	console.log(progressCount);
+
 	return (
 		<main className='app-container'>
 			<div className='content-container'>
 				<Title className='title'>Guest Review</Title>
 				<Text>Please submit a review so we can serve you better</Text>
-				{progressCount === 1 && <ReceptionReview />}
-				{progressCount === 2 && <PoolReview />}
-				{progressCount === 3 && <ResturantReview />}
+				{progressCount === 1 && (
+					<ReceptionReview
+						progressCount={progressCount}
+						response={response}
+						setResponse={setResponse}
+					/>
+				)}
+				{progressCount === 2 && (
+					<PoolReview
+						progressCount={progressCount}
+						response={response}
+						setResponse={setResponse}
+					/>
+				)}
+				{progressCount === 3 && (
+					<ResturantReview
+						progressCount={progressCount}
+						response={response}
+						setResponse={setResponse}
+					/>
+				)}
 
 				<div className='previous-next-container'>
 					{progressCount === 1 ? null : (

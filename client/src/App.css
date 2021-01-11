@@ -43,6 +43,18 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+.ant-radio-wrapper:hover .ant-radio, .ant-radio:hover .ant-radio-inner, .ant-radio-input:focus + .ant-radio-inner{
+  border-color: #fadb14; 
+}
+.ant-radio-input{
+  background:#fadb14 ;
+  color:#fadb14 ;
+}
+.ant-radio-inner::after{
+  background:#fadb14 ;
+  color:#fadb14 ;
+  border-color: #fadb14; 
+}
 
 
 @media (prefers-reduced-motion: no-preference) {

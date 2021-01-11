@@ -8,9 +8,11 @@ const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 function ReceptionReview() {
 	return (
 		<div className='component-container'>
-			<Text className='question-text'>
-				How was the services at reception?
-			</Text>
+			<div>
+				<Text className='question-text'>
+					How was the services at reception?
+				</Text>
+			</div>
 			<div className='rate'>
 				<Rate tooltips={desc} allowClear={true} count={5} />
 			</div>
