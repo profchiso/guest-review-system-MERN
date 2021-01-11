@@ -16,7 +16,7 @@ function ResturantReview(props) {
 		reviews,
 		setReviews,
 	} = props;
-	const [questionValue, setQuestionValue] = useState(1);
+	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 	};
@@ -28,14 +28,19 @@ function ResturantReview(props) {
 				</Text>
 				<div>
 					<Radio.Group value={questionValue} onChange={onChange}>
+						<Radio value={0}>No</Radio>
 						<Radio value={1}>Yes</Radio>
-						<Radio value={2}>No</Radio>
 					</Radio.Group>
 				</div>
 			</div>
-			<div className='rate'>
-				<Rate tooltips={desc} allowClear={true} count={5} />
-			</div>
+			{questionValue === 1 && (
+				<div className='rate'>
+					<Text className='question-text'>Rate this service</Text>
+					<div>
+						<Rate tooltips={desc} allowClear={true} count={5} />
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
