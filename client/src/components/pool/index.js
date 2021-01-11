@@ -18,14 +18,20 @@ function PoolReview(props) {
 	} = props;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
-		console.log(e.target.value);
 		setQuestionValue(e.target.value);
 		if (questionValue === 1) {
 			const usedFacilities = [...facilitiesUsed, 'pool'];
+			usedFacilities = usedFacilities.push('pool');
+
 			setFacilitiesUsed(usedFacilities);
+		} else if (questionValue === 0) {
+			let removeSevice = facilitiesUsed.filter(
+				(service) => service !== 'pool'
+			);
+			setFacilitiesUsed(removeSevice);
 		}
 	};
-	console.log(props);
+
 	return (
 		<div className='component-container'>
 			<div>

@@ -9,11 +9,9 @@ import './App.css';
 const { Title, Text } = Typography;
 
 function App() {
-	const [view, setView] = useState(1);
 	const [facilitiesUsed, setFacilitiesUsed] = useState(['reception']);
 	const [progressCount, setProgressCount] = useState(1);
 	const [reviews, setReviews] = useState([]);
-
 	const [response, setResponse] = useState({});
 
 	return (

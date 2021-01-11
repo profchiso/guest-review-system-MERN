@@ -20,6 +20,7 @@ function ResturantReview(props) {
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 	};
+	console.log(facilitiesUsed);
 	return (
 		<div className='component-container'>
 			<div>
