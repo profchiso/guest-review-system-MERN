@@ -9,15 +9,7 @@ const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
 function ResturantReview(props) {
-	const {
-		progressCount,
-		response,
-		setResponse,
-		facilitiesUsed,
-		setFacilitiesUsed,
-		reviews,
-		setReviews,
-	} = props;
+	console.log(props);
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);

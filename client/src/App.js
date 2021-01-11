@@ -30,39 +30,9 @@ function App() {
 					<Text>
 						Please submit a review so we can serve you better
 					</Text>
-					{progressCount === 1 && (
-						<ReceptionReview
-							progressCount={progressCount}
-							response={response}
-							setResponse={setResponse}
-							facilitiesUsed={facilitiesUsed}
-							setFacilitiesUsed={setFacilitiesUsed}
-							reviews={reviews}
-							setReviews={setReviews}
-						/>
-					)}
-					{progressCount === 2 && (
-						<PoolReview
-							progressCount={progressCount}
-							response={response}
-							setResponse={setResponse}
-							facilitiesUsed={facilitiesUsed}
-							setFacilitiesUsed={setFacilitiesUsed}
-							reviews={reviews}
-							setReviews={setReviews}
-						/>
-					)}
-					{progressCount === 3 && (
-						<ResturantReview
-							progressCount={progressCount}
-							response={response}
-							setResponse={setResponse}
-							facilitiesUsed={facilitiesUsed}
-							setFacilitiesUsed={setFacilitiesUsed}
-							reviews={reviews}
-							setReviews={setReviews}
-						/>
-					)}
+					{progressCount === 1 && <ReceptionReview />}
+					{progressCount === 2 && <PoolReview />}
+					{progressCount === 3 && <ResturantReview />}
 
 					<div className='previous-next-container'>
 						{progressCount === 1 ? null : (
