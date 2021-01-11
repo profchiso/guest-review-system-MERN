@@ -2,7 +2,8 @@ import { useState } from 'react';
 import ReceptionReview from '../src/components/receptionist';
 import PoolReview from '../src/components/pool/';
 import ResturantReview from '../src/components/resturant';
-import { Typography, Button } from 'antd';
+import logo from '../src/img/BON-hotel-Logo.png';
+import { Typography, Button, Image } from 'antd';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import './App.css';
 const { Title, Text } = Typography;
@@ -18,6 +19,9 @@ function App() {
 	return (
 		<main className='app-container'>
 			<div className='content-container'>
+				<div>
+					<Image src={logo} />
+				</div>
 				<Title className='title'>Guest Review</Title>
 				<Text>Please submit a review so we can serve you better</Text>
 				{progressCount === 1 && (
