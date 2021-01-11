@@ -1,4 +1,6 @@
 import { Typography, Rate } from 'antd';
+import { connect } from 'react-redux';
+import { addFacilityUsed, addServiceReview } from '../../actions';
 
 import './index.css';
 
@@ -19,5 +21,10 @@ function ReceptionReview(props) {
 		</div>
 	);
 }
+const mapStateToProps = (state) => {
+	return {
+		...state,
+	};
+};
 
-export default ReceptionReview;
+export default connect(mapStateToProps, {})(ReceptionReview);

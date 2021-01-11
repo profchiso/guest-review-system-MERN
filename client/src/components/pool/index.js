@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import { Typography, Rate, Radio } from 'antd';
+import { addFacilityUsed, addServiceReview } from '../../actions';
 
 import './index.css';
 
@@ -54,5 +56,10 @@ function PoolReview(props) {
 		</div>
 	);
 }
+const mapStateToProps = (state) => {
+	return {
+		...state,
+	};
+};
 
-export default PoolReview;
+export default connect(mapStateToProps, {})(PoolReview);

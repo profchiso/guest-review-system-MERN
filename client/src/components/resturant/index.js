@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import { Typography, Rate, Radio } from 'antd';
+import { addFacilityUsed, addServiceReview } from '../../actions';
 
 import './index.css';
 
@@ -46,4 +48,9 @@ function ResturantReview(props) {
 	);
 }
 
-export default ResturantReview;
+const mapStateToProps = (state) => {
+	return {
+		...state,
+	};
+};
+export default connect(mapStateToProps, {})(ResturantReview);
