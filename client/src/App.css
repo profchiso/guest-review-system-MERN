@@ -31,9 +31,19 @@
   background:#fadb14 ;
   border-color: #fadb14;
 }
+.ant-btn-primary:hover, .ant-btn-primary:focus ,.ant-btn-primary:active{
+  background:#fadb14 ;
+  border-color: #fadb14;
+}
 .progress-count{
   padding: 20px;
 }
+.previous-next-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
