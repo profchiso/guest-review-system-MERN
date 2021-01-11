@@ -7,6 +7,27 @@
   pointer-events: none;
 }
 
+.app-container {
+	min-height: 100vh;
+  display: flex;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+
+	align-items: center;
+	padding: 1rem auto;
+}
+.content-container {
+	max-width: 1024px;
+	margin: 0.5rem auto;
+	text-align: center;
+	padding: 1rem auto;
+}
+h4{
+ font-size: 16px;
+  background: -webkit-linear-gradient(rgb(187, 97, 97), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
