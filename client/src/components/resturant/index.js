@@ -5,12 +5,10 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function ReceptionReview() {
+function ResturantReview() {
 	return (
 		<div className='component-container'>
-			<Text className='question-text'>
-				How was the services at reception?
-			</Text>
+			<Text className='question-text'>Did you use the resturant?</Text>
 			<div className='rate'>
 				<Rate tooltips={desc} allowClear={true} count={5} />
 			</div>
@@ -18,4 +16,4 @@ function ReceptionReview() {
 	);
 }
 
-export default ReceptionReview;
+export default ResturantReview;
