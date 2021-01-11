@@ -21,11 +21,18 @@
 	text-align: center;
 	padding: 1rem auto;
 }
-h4{
+.title{
  font-size: 16px;
-  background: -webkit-linear-gradient(rgb(187, 97, 97), #fff);
+  background: -webkit-linear-gradient(rgb(187, 97, 97), #fadb14);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.action-btn{
+  background:#fadb14 ;
+  border-color: #fadb14;
+}
+.progress-count{
+  padding: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

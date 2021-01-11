@@ -1,7 +1,7 @@
 import { Typography, Rate, Button } from 'antd';
 
 import './index.css';
-import { RightOutlined } from '@ant-design/icons';
+
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
@@ -12,12 +12,8 @@ function ReceptionReview() {
 				How was the services at reception?
 			</Text>
 			<div className='rate'>
-				<Rate tooltips={desc} allowClear={true} allowHalf={true} />
+				<Rate tooltips={desc} allowClear={true} count={5} />
 			</div>
-			<Button
-				type='primary'
-				icon={<RightOutlined />}
-				shape='round'></Button>
 		</div>
 	);
 }
