@@ -10,8 +10,11 @@ export const guestReview = (state = initialState, actions) => {
 	console.log('action payload', payload);
 
 	if (type === 'ADD_SERVICE_REVIEW') {
+		let addedService = [...state.facilitiesUsed];
+		addedService.push(payload);
 		return {
 			...state,
+			facilitiesUsed: addedService,
 		};
 	} else if (type === 'ADD_FACITITY_USED') {
 		return {
