@@ -8,8 +8,8 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function ResturantReview(props) {
-	console.log(props);
+function ResturantReview({ guestReview, addFacilityUsed, addServiceReview }) {
+	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
@@ -45,4 +45,6 @@ const mapStateToProps = (state) => {
 		...state,
 	};
 };
-export default connect(mapStateToProps, {})(ResturantReview);
+export default connect(mapStateToProps, { addFacilityUsed, addServiceReview })(
+	ResturantReview
+);

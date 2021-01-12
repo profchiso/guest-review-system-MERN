@@ -19,6 +19,7 @@ export const guestReview = (state = initialState, actions) => {
 	} else if (type === 'ADD_FACITITY_USED') {
 		return {
 			...state,
+			facilitiesUsed: payload,
 		};
 	}
 	return state;

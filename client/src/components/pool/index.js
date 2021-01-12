@@ -8,12 +8,15 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function PoolReview({ addFacilityUsed, addServiceReview }) {
+function PoolReview({ guestReview, addFacilityUsed, addServiceReview }) {
+	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 		if (questionValue === 1) {
-			addFacilityUsed('pool');
+			let facilityUpdate = [...facilitiesUsed, 'pool'];
+			console.log(facilityUpdate);
+			addFacilityUsed(facilityUpdate);
 		} else if (questionValue === 0) {
 		}
 	};

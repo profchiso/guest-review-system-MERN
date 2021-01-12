@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Landing from '../src/components/landing';
 import store from './store';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
