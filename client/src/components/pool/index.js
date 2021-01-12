@@ -1,23 +1,27 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Typography, Rate, Radio } from 'antd';
-import { addFacilityUsed, addServiceReview } from '../../actions';
+import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 
 import './index.css';
 
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function PoolReview({ guestReview, addFacilityUsed, addServiceReview }) {
+function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 		if (questionValue === 1) {
 			let facilityUpdate = [...facilitiesUsed, 'pool'];
-			console.log(facilityUpdate);
-			addFacilityUsed(facilityUpdate);
+			updateFacilitiesUsed(facilityUpdate);
 		} else if (questionValue === 0) {
+			let facilityUpdate = [...facilitiesUsed];
+			let removeFacility = facilityUpdate.filter(
+				(facility) => facility !== 'pool'
+			);
+			updateFacilitiesUsed(removeFacility);
 		}
 	};
 
@@ -49,6 +53,7 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { addFacilityUsed, addServiceReview })(
-	PoolReview
-);
+export default connect(mapStateToProps, {
+	updateFacilitiesUsed,
+	addServiceReview,
+})(PoolReview);

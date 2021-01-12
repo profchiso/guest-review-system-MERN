@@ -5,7 +5,7 @@ export const addServiceReview = (serviceReview) => {
 	};
 };
 
-export const addFacilityUsed = (facility) => {
+export const updateFacilitiesUsed = (facility) => {
 	return {
 		type: 'ADD_FACITITY_USED',
 		payload: facility,

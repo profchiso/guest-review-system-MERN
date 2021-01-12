@@ -5,15 +5,15 @@ import ResturantReview from '../resturant';
 import logo from '../../img/BON-hotel-Logo.png';
 import { Typography, Button, Image } from 'antd';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
-import { addFacilityUsed, addServiceReview } from '../../actions';
+import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 import { connect } from 'react-redux';
 
 import '../../App.css';
 const { Title, Text } = Typography;
 
-function Landing({ guestReview, addFacilityUsed, addServiceReview }) {
+function Landing({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
-	console.log(facilitiesUsed);
+
 	const [progressCount, setProgressCount] = useState(1);
 	return (
 		<main className='app-container'>
@@ -66,6 +66,7 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { addFacilityUsed, addServiceReview })(
-	Landing
-);
+export default connect(mapStateToProps, {
+	updateFacilitiesUsed,
+	addServiceReview,
+})(Landing);

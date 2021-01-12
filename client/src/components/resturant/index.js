@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Typography, Rate, Radio } from 'antd';
-import { addFacilityUsed, addServiceReview } from '../../actions';
+import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 
 import './index.css';
 
 const { Text } = Typography;
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-function ResturantReview({ guestReview, addFacilityUsed, addServiceReview }) {
+function ResturantReview({
+	guestReview,
+	updateFacilitiesUsed,
+	addServiceReview,
+}) {
 	const { facilitiesUsed, reviews, response } = guestReview;
+	console.log('facility used from resturant', facilitiesUsed);
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
@@ -45,6 +50,7 @@ const mapStateToProps = (state) => {
 		...state,
 	};
 };
-export default connect(mapStateToProps, { addFacilityUsed, addServiceReview })(
-	ResturantReview
-);
+export default connect(mapStateToProps, {
+	updateFacilitiesUsed,
+	addServiceReview,
+})(ResturantReview);
