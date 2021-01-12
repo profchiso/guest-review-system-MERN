@@ -6,7 +6,7 @@ import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 import './index.css';
 
 const { Text } = Typography;
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function ResturantReview({
 	guestReview,

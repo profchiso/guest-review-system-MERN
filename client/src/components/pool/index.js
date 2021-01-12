@@ -6,13 +6,12 @@ import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 import './index.css';
 
 const { Text } = Typography;
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
-		console.log(e);
 		setQuestionValue(e.target.value);
 		if (e.target.value === 1) {
 			let facilityUpdate = [...facilitiesUsed, 'pool'];
