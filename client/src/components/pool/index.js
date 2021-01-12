@@ -12,11 +12,12 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
+		console.log(e);
 		setQuestionValue(e.target.value);
-		if (questionValue === 1) {
+		if (e.target.value === 1) {
 			let facilityUpdate = [...facilitiesUsed, 'pool'];
 			updateFacilitiesUsed(facilityUpdate);
-		} else if (questionValue === 0) {
+		} else if (e.target.value === 0) {
 			let facilityUpdate = [...facilitiesUsed];
 			let removeFacility = facilityUpdate.filter(
 				(facility) => facility !== 'pool'
@@ -30,7 +31,9 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 			<div>
 				<Text className='question-text'>Did you use the pool?</Text>
 				<div>
-					<Radio.Group value={questionValue} onChange={onChange}>
+					<Radio.Group
+						value={questionValue}
+						onChange={(e) => onChange(e)}>
 						<Radio value={0}>No</Radio>
 						<Radio value={1}>Yes</Radio>
 					</Radio.Group>

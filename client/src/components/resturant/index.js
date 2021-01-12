@@ -18,6 +18,16 @@ function ResturantReview({
 	const [questionValue, setQuestionValue] = useState(0);
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
+		if (e.target.value === 1) {
+			let facilityUpdate = [...facilitiesUsed, 'resturant'];
+			updateFacilitiesUsed(facilityUpdate);
+		} else if (e.target.value === 0) {
+			let facilityUpdate = [...facilitiesUsed];
+			let removeFacility = facilityUpdate.filter(
+				(facility) => facility !== 'resturant'
+			);
+			updateFacilitiesUsed(removeFacility);
+		}
 	};
 
 	return (
@@ -27,7 +37,9 @@ function ResturantReview({
 					Did you use the resturant?
 				</Text>
 				<div>
-					<Radio.Group value={questionValue} onChange={onChange}>
+					<Radio.Group
+						value={questionValue}
+						onChange={(e) => onChange(e)}>
 						<Radio value={0}>No</Radio>
 						<Radio value={1}>Yes</Radio>
 					</Radio.Group>
