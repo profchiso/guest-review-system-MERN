@@ -9,11 +9,11 @@ const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function ReceptionReview(props) {
-	const [receptionRating, setReceptionRating] = useState(1);
+	const [rating, setRating] = useState(1);
 	const handleRatingChange = (value) => {
-		setReceptionRating(value);
+		setRating(value);
 	};
-	console.log(receptionRating);
+
 	return (
 		<div className='component-container'>
 			<div>
@@ -26,12 +26,12 @@ function ReceptionReview(props) {
 					<Rate
 						allowClear={true}
 						count={5}
-						value={receptionRating}
+						value={rating}
 						onChange={handleRatingChange}
 					/>
-					{receptionRating ? (
+					{rating ? (
 						<span className='ant-rate-text'>
-							{desc[receptionRating - 1]}
+							{desc[rating - 1]}
 						</span>
 					) : (
 						''
