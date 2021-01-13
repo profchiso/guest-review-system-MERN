@@ -9,11 +9,16 @@ const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
-	const { facilitiesUsed, reviews, response } = guestReview;
+	const { facilitiesUsed } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
+		let poolReview = {
+			facilty: 'Pool',
+			rating: `${desc[value]}`,
+		};
+		addServiceReview(poolReview);
 	};
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);

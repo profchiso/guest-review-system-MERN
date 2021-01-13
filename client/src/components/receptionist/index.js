@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import { Typography, Rate } from 'antd';
 import { connect } from 'react-redux';
-import { addFacilityUsed, addServiceReview } from '../../actions';
+import { addServiceReview } from '../../actions';
 
 import './index.css';
 
 const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
-function ReceptionReview(props) {
+function ReceptionReview({ addServiceReview }) {
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
+
+		let receptionReview = {
+			facilty: 'Reception',
+			rating: `${desc[value]}`,
+		};
+		addServiceReview(receptionReview);
 	};
 
 	return (
@@ -47,4 +53,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, {})(ReceptionReview);
+export default connect(mapStateToProps, { addServiceReview })(ReceptionReview);

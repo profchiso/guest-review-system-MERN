@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import '../../App.css';
 const { Title, Text } = Typography;
 
-function Landing({ guestReview, updateFacilitiesUsed, addServiceReview }) {
+function Landing({ guestReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
 
 	const [progressCount, setProgressCount] = useState(1);

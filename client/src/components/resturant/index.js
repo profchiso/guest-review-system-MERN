@@ -13,13 +13,18 @@ function ResturantReview({
 	updateFacilitiesUsed,
 	addServiceReview,
 }) {
-	const { facilitiesUsed, reviews, response } = guestReview;
+	const { facilitiesUsed } = guestReview;
 	console.log('facility used from resturant', facilitiesUsed);
 	const [questionValue, setQuestionValue] = useState(0);
 
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
+		let resturantReview = {
+			facilty: 'Resturant',
+			rating: `${desc[value]}`,
+		};
+		addServiceReview(resturantReview);
 	};
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
