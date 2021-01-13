@@ -52,6 +52,7 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 								allowClear={true}
 								count={5}
 								value={rating}
+								onChange={handleRatingChange}
 							/>
 							{rating ? (
 								<span className='ant-rate-text'>

@@ -16,6 +16,11 @@ function ResturantReview({
 	const { facilitiesUsed, reviews, response } = guestReview;
 	console.log('facility used from resturant', facilitiesUsed);
 	const [questionValue, setQuestionValue] = useState(0);
+
+	const [rating, setRating] = useState(1);
+	const handleRatingChange = (value) => {
+		setRating(value);
+	};
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 		if (e.target.value === 1) {
@@ -49,7 +54,22 @@ function ResturantReview({
 				<div className='rate'>
 					<Text className='question-text'>Rate this service</Text>
 					<div>
-						<Rate tooltips={desc} allowClear={true} count={5} />
+						<span>
+							<Rate
+								tooltips={desc}
+								allowClear={true}
+								count={5}
+								value={rating}
+								onChange={handleRatingChange}
+							/>
+							{rating ? (
+								<span className='ant-rate-text'>
+									{desc[rating - 1]}
+								</span>
+							) : (
+								''
+							)}
+						</span>
 					</div>
 				</div>
 			)}
