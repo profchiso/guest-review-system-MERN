@@ -14,7 +14,6 @@ function ResturantReview({
 	addServiceReview,
 }) {
 	const { facilitiesUsed } = guestReview;
-	console.log('facility used from resturant', facilitiesUsed);
 	const [questionValue, setQuestionValue] = useState(0);
 
 	const [rating, setRating] = useState(0);
@@ -22,7 +21,7 @@ function ResturantReview({
 		setRating(value);
 		let resturantReview = {
 			facilty: 'Resturant',
-			rating: `${desc[rating + 1]}`,
+			rating: value > 0 ? `${desc[value + 1]}` : 'No rating',
 		};
 		addServiceReview(resturantReview);
 	};

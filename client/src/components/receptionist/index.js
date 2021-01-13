@@ -12,10 +12,11 @@ function ReceptionReview({ addServiceReview }) {
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
+		console.log(value);
 
 		let receptionReview = {
 			facilty: 'Reception',
-			rating: `${desc[rating + 1]}`,
+			rating: value > 0 ? `${desc[value + 1]}` : 'No rating',
 		};
 		addServiceReview(receptionReview);
 	};
