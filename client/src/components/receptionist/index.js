@@ -36,7 +36,7 @@ function ReceptionReview({ addServiceReview }) {
 						value={rating}
 						onChange={handleRatingChange}
 					/>
-					{rating ? (
+					{rating > 0 ? (
 						<span className='ant-rate-text'>
 							{desc[rating - 1]}
 						</span>

@@ -55,13 +55,12 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 					<div>
 						<span>
 							<Rate
-								tooltips={desc}
 								allowClear={true}
 								count={5}
 								value={rating}
 								onChange={handleRatingChange}
 							/>
-							{rating ? (
+							{rating > 0 ? (
 								<span className='ant-rate-text'>
 									{desc[rating - 1]}
 								</span>
