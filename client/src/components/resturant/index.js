@@ -17,7 +17,7 @@ function ResturantReview({
 	console.log('facility used from resturant', facilitiesUsed);
 	const [questionValue, setQuestionValue] = useState(0);
 
-	const [rating, setRating] = useState(1);
+	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
 	};

@@ -25,6 +25,7 @@ const guestSchema = new mongoose.Schema({
 	},
 	checkoutDate: {
 		type: Date,
+		default: Date.now(),
 	},
 	createdAt: {
 		type: Date,

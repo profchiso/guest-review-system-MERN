@@ -11,7 +11,7 @@ const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
-	const [rating, setRating] = useState(1);
+	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
 	};

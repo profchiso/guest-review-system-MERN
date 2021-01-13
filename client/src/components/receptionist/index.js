@@ -9,7 +9,7 @@ const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function ReceptionReview(props) {
-	const [rating, setRating] = useState(1);
+	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
 	};
