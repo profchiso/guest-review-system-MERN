@@ -15,7 +15,7 @@ function ReceptionReview({ addServiceReview }) {
 
 		let receptionReview = {
 			facilty: 'Reception',
-			rating: `${desc[value]}`,
+			rating: `${desc[rating]}`,
 		};
 		addServiceReview(receptionReview);
 	};

@@ -22,7 +22,7 @@ function ResturantReview({
 		setRating(value);
 		let resturantReview = {
 			facilty: 'Resturant',
-			rating: `${desc[value]}`,
+			rating: `${desc[rating]}`,
 		};
 		addServiceReview(resturantReview);
 	};

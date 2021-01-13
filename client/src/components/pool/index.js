@@ -16,8 +16,9 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 		setRating(value);
 		let poolReview = {
 			facilty: 'Pool',
-			rating: `${desc[value]}`,
+			rating: `${desc[rating]}`,
 		};
+		console.log(poolReview);
 		addServiceReview(poolReview);
 	};
 	const onChange = (e) => {
