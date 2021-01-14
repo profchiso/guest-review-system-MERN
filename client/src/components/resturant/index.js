@@ -13,9 +13,7 @@ function ResturantReview({
 	updateFacilitiesUsed,
 	addServiceReview,
 }) {
-	console.log(guestReview);
-
-	const { facilitiesUsed } = guestReview;
+	const { facilitiesUsed, reviews } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 
 	const [rating, setRating] = useState(0);
@@ -25,7 +23,12 @@ function ResturantReview({
 			facilty: 'Resturant',
 			rating: value > 0 ? `${desc[value - 1]}` : 'No rating',
 		};
-		addServiceReview(resturantReview);
+		let currentReviews = [...reviews];
+		let removeReviewIfExist = currentReviews.filter(
+			(review) => review.facility !== resturantReview.facilty
+		);
+		let updatedReview = [...removeReviewIfExist, resturantReview];
+		addServiceReview(updatedReview);
 	};
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);

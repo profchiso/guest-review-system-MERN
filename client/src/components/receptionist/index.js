@@ -9,17 +9,20 @@ const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function ReceptionReview({ guestReview, addServiceReview }) {
-	console.log(guestReview);
+	const { reviews } = guestReview;
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
-		console.log(value);
-
 		let receptionReview = {
 			facilty: 'Reception',
 			rating: value > 0 ? `${desc[value - 1]}` : 'No rating',
 		};
-		addServiceReview(receptionReview);
+		let currentReviews = [...reviews];
+		let removeReviewIfExist = currentReviews.filter(
+			(review) => review.facility !== receptionReview.facilty
+		);
+		let updatedReview = [...removeReviewIfExist, receptionReview];
+		addServiceReview(updatedReview);
 	};
 
 	return (

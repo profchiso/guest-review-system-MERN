@@ -9,8 +9,7 @@ const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
-	const { facilitiesUsed } = guestReview;
-	console.log(guestReview);
+	const { facilitiesUsed, reviews } = guestReview;
 	const [questionValue, setQuestionValue] = useState(0);
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
@@ -19,7 +18,13 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 			facilty: 'Pool',
 			rating: value > 0 ? `${desc[value - 1]}` : 'No rating',
 		};
-		addServiceReview(poolReview);
+
+		let currentReviews = [...reviews];
+		let removeReviewIfExist = currentReviews.filter(
+			(review) => review.facility !== poolReview.facilty
+		);
+		let updatedReview = [...removeReviewIfExist, poolReview];
+		addServiceReview(updatedReview);
 	};
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
