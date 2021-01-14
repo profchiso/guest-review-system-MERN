@@ -19,11 +19,20 @@ function Landing({ guestReview }) {
 	const [progressCount, setProgressCount] = useState(1);
 	const submitReview = async (reviewDetails) => {
 		setIsLoading(!isLoading);
+		const body = JSON.stringify(reviewDetails);
+		const config = {
+			'content-type': 'application/json',
+		};
+		try {
+			const res = await axios.post('/api/review', body, config);
 
-		setTimeout(() => {
-			message.success('Review submitted successfully');
-			setIsLoading(false);
-		}, 2000);
+			setTimeout(() => {
+				message.success('Review submitted successfully');
+				setIsLoading(false);
+			}, 2000);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 	return (
 		<main className='app-container'>

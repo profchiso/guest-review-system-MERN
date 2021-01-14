@@ -160,7 +160,26 @@ exports.updateReview = async (req, res) => {
 	try {
 		const { facilitiesUsed, review } = req.body;
 
-		const reviewToUpdate = await Review.findById(req.params.id);
+		const { id } = req.params;
+		if (!id) {
+			const createReview = await Review.create({
+				guestName: 'anonymous',
+				guestEmail: 'anonymous',
+				guestPhone: 'anonymous',
+				facilitiesUsed,
+				review,
+			});
+
+			return res.status(200).json({
+				success: true,
+				data: {
+					message: `Thank you for the review, We hope to always serve you better`,
+					review: createReview,
+				},
+			});
+		}
+
+		const reviewToUpdate = await Review.findById(id);
 
 		if (facilitiesUsed) {
 			reviewToUpdate.facilitiesUsed = facilitiesUsed.trim().split(',');

@@ -24,25 +24,25 @@ router.get('/:id', getSingleReview);
 //add review
 router.post(
 	'/',
-	[
-		check('guestName')
-			.not()
-			.notEmpty()
-			.withMessage('Firtname cannot be empty')
-			.escape()
-			.trim(),
-		check('guestEmail')
-			.not()
-			.notEmpty()
-			.withMessage('Lastname cannot be empty')
-			.isEmail()
-			.withMessage('Invalid email')
-			.normalizeEmail(),
-		check('guestPhone')
-			.not()
-			.notEmpty()
-			.withMessage('Phone number required'),
-	],
+	// [
+	// 	check('guestName')
+	// 		.not()
+	// 		.notEmpty()
+	// 		.withMessage('Firtname cannot be empty')
+	// 		.escape()
+	// 		.trim(),
+	// 	check('guestEmail')
+	// 		.not()
+	// 		.notEmpty()
+	// 		.withMessage('Lastname cannot be empty')
+	// 		.isEmail()
+	// 		.withMessage('Invalid email')
+	// 		.normalizeEmail(),
+	// 	check('guestPhone')
+	// 		.not()
+	// 		.notEmpty()
+	// 		.withMessage('Phone number required'),
+	// ],
 	addReview
 );
 
