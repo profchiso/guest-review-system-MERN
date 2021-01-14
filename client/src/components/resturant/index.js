@@ -60,7 +60,6 @@ function ResturantReview({
 					<div>
 						<span>
 							<Rate
-								tooltips={desc}
 								allowClear={true}
 								count={5}
 								value={rating}

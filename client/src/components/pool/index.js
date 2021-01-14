@@ -14,12 +14,10 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
-		console.log(rating);
 		let poolReview = {
 			facilty: 'Pool',
 			rating: value > 0 ? `${desc[value + 1]}` : 'No rating',
 		};
-		// console.log(poolReview);
 		addServiceReview(poolReview);
 	};
 	const onChange = (e) => {

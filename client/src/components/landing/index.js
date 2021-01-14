@@ -13,6 +13,7 @@ const { Title, Text } = Typography;
 
 function Landing({ guestReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
+	console.log(guestReview);
 
 	const [progressCount, setProgressCount] = useState(1);
 	return (
@@ -26,9 +27,16 @@ function Landing({ guestReview }) {
 				{progressCount === 1 && <ReceptionReview />}
 				{progressCount === 2 && <PoolReview />}
 				{progressCount === 3 && <ResturantReview />}
+				{progressCount > 3 && (
+					<div className='rate'>
+						<Text className='question-text'>
+							Reviews captured, click submit to send you review
+						</Text>
+					</div>
+				)}
 
 				<div className='previous-next-container'>
-					{progressCount === 1 ? null : (
+					{progressCount === 1 || progressCount > 3 ? null : (
 						<Button
 							onClick={() => setProgressCount(progressCount - 1)}
 							className='action-btn'
@@ -36,7 +44,7 @@ function Landing({ guestReview }) {
 							icon={<LeftOutlined />}
 							shape='round'></Button>
 					)}
-					{progressCount >= 3 ? (
+					{progressCount > 3 ? (
 						<Button
 							className='action-btn'
 							type='primary'
