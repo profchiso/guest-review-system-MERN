@@ -3,19 +3,28 @@ import ReceptionReview from '../receptionist';
 import PoolReview from '../pool';
 import ResturantReview from '../resturant';
 import logo from '../../img/BON-hotel-Logo.png';
-import { Typography, Button, Image } from 'antd';
+import { Typography, Button, Image, message } from 'antd';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { updateFacilitiesUsed, addServiceReview } from '../../actions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import '../../App.css';
 const { Title, Text } = Typography;
 
 function Landing({ guestReview }) {
-	const { facilitiesUsed, reviews, response } = guestReview;
+	const { reviews, facilitiesUsed } = guestReview;
+	const [isLoading, setIsLoading] = useState(false);
 
-	console.log(guestReview);
 	const [progressCount, setProgressCount] = useState(1);
+	const submitReview = async (reviewDetails) => {
+		setIsLoading(!isLoading);
+
+		setTimeout(() => {
+			message.success('Review submitted successfully');
+			setIsLoading(false);
+		}, 2000);
+	};
 	return (
 		<main className='app-container'>
 			<div className='content-container'>
@@ -46,6 +55,10 @@ function Landing({ guestReview }) {
 					)}
 					{progressCount > 3 ? (
 						<Button
+							onClick={() =>
+								submitReview({ reviews, facilitiesUsed })
+							}
+							loading={isLoading}
 							className='action-btn'
 							type='primary'
 							shape='round'>

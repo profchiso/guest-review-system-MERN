@@ -29,7 +29,7 @@ function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 		if (e.target.value === 1) {
-			let facilityUpdate = [...facilitiesUsed, 'pool'];
+			let facilityUpdate = [...facilitiesUsed, 'Pool'];
 			updateFacilitiesUsed(facilityUpdate);
 		} else if (e.target.value === 0) {
 			let facilityUpdate = [...facilitiesUsed];

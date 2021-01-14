@@ -33,7 +33,7 @@ function ResturantReview({
 	const onChange = (e) => {
 		setQuestionValue(e.target.value);
 		if (e.target.value === 1) {
-			let facilityUpdate = [...facilitiesUsed, 'resturant'];
+			let facilityUpdate = [...facilitiesUsed, 'Resturant'];
 			updateFacilitiesUsed(facilityUpdate);
 		} else if (e.target.value === 0) {
 			let facilityUpdate = [...facilitiesUsed];
