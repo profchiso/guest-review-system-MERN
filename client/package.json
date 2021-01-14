@@ -8,6 +8,7 @@
 		"@testing-library/user-event": "^12.1.10",
 		"antd": "^4.10.0",
 		"axios": "^0.21.1",
+		"http-proxy-middleware": "^1.0.6",
 		"moment": "^2.29.0",
 		"naija-state-local-government": "^1.1.2",
 		"react": "^17.0.1",
@@ -44,5 +45,6 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"proxy": "http://localhost:9000"
 }

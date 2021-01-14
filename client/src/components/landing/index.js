@@ -21,10 +21,15 @@ function Landing({ guestReview }) {
 		setIsLoading(!isLoading);
 		const body = JSON.stringify(reviewDetails);
 		const config = {
-			'content-type': 'application/json',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			accept: 'application/json',
 		};
 		try {
-			const res = await axios.post('/api/review', body, config);
+			// const res = await axios.patch('/api/v1/review', body, config);
+			// console.log(res.data);
+			console.log(reviewDetails);
 
 			setTimeout(() => {
 				message.success('Review submitted successfully');
