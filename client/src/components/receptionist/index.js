@@ -8,7 +8,8 @@ import './index.css';
 const { Text } = Typography;
 const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
-function ReceptionReview({ addServiceReview }) {
+function ReceptionReview({ guestReview, addServiceReview }) {
+	console.log(guestReview);
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
@@ -16,7 +17,7 @@ function ReceptionReview({ addServiceReview }) {
 
 		let receptionReview = {
 			facilty: 'Reception',
-			rating: value > 0 ? `${desc[value + 1]}` : 'No rating',
+			rating: value > 0 ? `${desc[value - 1]}` : 'No rating',
 		};
 		addServiceReview(receptionReview);
 	};

@@ -10,13 +10,14 @@ const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
 
 function PoolReview({ guestReview, updateFacilitiesUsed, addServiceReview }) {
 	const { facilitiesUsed } = guestReview;
+	console.log(guestReview);
 	const [questionValue, setQuestionValue] = useState(0);
 	const [rating, setRating] = useState(0);
 	const handleRatingChange = (value) => {
 		setRating(value);
 		let poolReview = {
 			facilty: 'Pool',
-			rating: value > 0 ? `${desc[value + 1]}` : 'No rating',
+			rating: value > 0 ? `${desc[value - 1]}` : 'No rating',
 		};
 		addServiceReview(poolReview);
 	};

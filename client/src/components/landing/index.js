@@ -13,8 +13,8 @@ const { Title, Text } = Typography;
 
 function Landing({ guestReview }) {
 	const { facilitiesUsed, reviews, response } = guestReview;
-	console.log(guestReview);
 
+	console.log(guestReview);
 	const [progressCount, setProgressCount] = useState(1);
 	return (
 		<main className='app-container'>
