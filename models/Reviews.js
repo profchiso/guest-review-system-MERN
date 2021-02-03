@@ -9,12 +9,11 @@ const reviewsSchema = new mongoose.Schema({
 	guestPhone: {
 		type: String,
 	},
-	facilitiesUsed: [String],
-	review: [
+	comment: String,
+	reviews: [
 		{
-			facilty: { type: String },
-			rating: { type: String },
-			moreDescription: { type: String },
+			question: { type: String },
+			rateValue: { type: String },
 		},
 	],
 	createdAt: {

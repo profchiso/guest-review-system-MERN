@@ -124,25 +124,25 @@ exports.addReview = async (req, res) => {
 			guestName: reviewData.guestName,
 			guestEmail: reviewData.guestEmail,
 			guestPhone: reviewData.guestPhone,
-			facilitiesUsed: [],
-			review: [],
+			comment: reviewData.comment,
+			review: reviewData.reviews,
 		});
 
-		const message = `<div>Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}</div>`;
+		// const message = `<div>Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}</div>`;
 
-		const mailOptions = {
-			from: 'giftedbraintech@gmail.com',
-			to: createReview.guestEmail,
-			subject: 'Thank You for your patronage',
-			text: `https://www.guest-review.com/${createReview.id}`,
-			html: `${message}`,
-		};
+		// const mailOptions = {
+		// 	from: 'giftedbraintech@gmail.com',
+		// 	to: createReview.guestEmail,
+		// 	subject: 'Thank You for your patronage',
+		// 	text: `https://www.guest-review.com/${createReview.id}`,
+		// 	html: `${message}`,
+		// };
 
-		await sendMailWithSendgrid(mailOptions);
+		// await sendMailWithSendgrid(mailOptions);
 		return res.status(201).json({
 			success: true,
 			data: {
-				message: `Review request sent to ${createReview.guestName}`,
+				message: `Review submitted`,
 				review: createReview,
 			},
 		});
