@@ -118,15 +118,16 @@ exports.addReview = async (req, res) => {
 		});
 	}
 	try {
-		console.log(req.body)
+
 		const reviewData = { ...req.body };
 
 		const createReview = await Review.create({
-			guestName: reviewData.guestName,
-			guestEmail: reviewData.guestEmail,
-			guestPhone: reviewData.guestPhone,
+			guestName: reviewData.guestName ? reviewData.guestName : "Anonymous",
+			guestEmail: reviewData.guestEmail ? reviewData.guestEmail : "Anonymous",
+			guestPhone: reviewData.guestPhone ? reviewData.guestPhone : "Anonymous",
 			comment: reviewData.comment,
 			reviews: reviewData.reviews,
+			facility: reviewData.facility
 		});
 
 		// const message = `<div>Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}</div>`;

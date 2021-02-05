@@ -10,6 +10,10 @@ const reviewsSchema = new mongoose.Schema({
 		type: String,
 	},
 	comment: String,
+	facility:{
+		type:String,
+		enum:["RATE YOUR STAY","DINING", "CONFERENCE"]
+	},
 	reviews: [
 		{
 			question: { type: String },
