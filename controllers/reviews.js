@@ -118,6 +118,7 @@ exports.addReview = async (req, res) => {
 		});
 	}
 	try {
+		console.log(req.body)
 		const reviewData = { ...req.body };
 
 		const createReview = await Review.create({
