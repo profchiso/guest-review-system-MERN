@@ -126,7 +126,7 @@ exports.addReview = async (req, res) => {
 			guestEmail: reviewData.guestEmail,
 			guestPhone: reviewData.guestPhone,
 			comment: reviewData.comment,
-			review: reviewData.reviews,
+			reviews: reviewData.reviews,
 		});
 
 		// const message = `<div>Dear ${createReview.guestName},\n Thank you for using our guest house. \nPlease use the link below to submit a quick review of your over all experience \nhttps://www.guest-review.com/${createReview.id}</div>`;

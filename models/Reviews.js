@@ -13,7 +13,7 @@ const reviewsSchema = new mongoose.Schema({
 	reviews: [
 		{
 			question: { type: String },
-			rateValue: { type: String },
+			rateValue: { type: Number },
 		},
 	],
 	createdAt: {
