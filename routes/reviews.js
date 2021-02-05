@@ -13,8 +13,8 @@ const {
 //get all Reviews
 router.get(
 	'/',
-	authenticate,
-	authorize(['accountant', 'receptionist', 'manager']),
+	// authenticate,
+	// authorize(['accountant', 'receptionist', 'manager']),
 	getAllReviews
 );
 
