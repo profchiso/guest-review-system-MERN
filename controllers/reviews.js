@@ -23,7 +23,7 @@ exports.getAllReviews = async (req, res) => {
 			(match) => `$${match}`
 		);
 
-		let query = User.find(JSON.parse(queryToString)); // the .select excludes any spacified field before sending the document
+		let query = Review.find(JSON.parse(queryToString)); // the .select excludes any spacified field before sending the document
 
 		//sorting query result
 		if (req.query.sort) {
@@ -54,7 +54,7 @@ exports.getAllReviews = async (req, res) => {
 
 		//handle a case where user specify page that does not exists
 		if (req.query.page) {
-			let numberOfDocument = await User.countDocuments();
+			let numberOfDocument = await Review.countDocuments();
 			if (skip >= numberOfDocument) {
 				apiError.message = 'This page does not exits';
 				console.log('apiError', apiError);
@@ -63,12 +63,12 @@ exports.getAllReviews = async (req, res) => {
 		}
 
 		//execute query
-		const users = await query; // query.sort().select().skip().limit()
+		const reviews = await query; // query.sort().select().skip().limit()
 		return res.status(200).json({
 			success: true,
 
 			data: {
-				users,
+				reviews,
 			},
 		});
 	} catch (err) {
